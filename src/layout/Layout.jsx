@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { Header } from './Header';
 import { Logo } from '../components/Logo';
+import { Logout } from '../components/Logout';
 import { Main } from './Main';
 import styled from 'styled-components';
 import { selectIsAuth } from '../store/selectors/auth';
@@ -13,6 +14,7 @@ const Layout = ({ className, children }) => {
     <div className={className}>
       <Header>
         <Logo />
+        {isAuth && <Logout />}
       </Header>
       <Main role="main" isAuth={isAuth}>
         {children}

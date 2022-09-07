@@ -38,5 +38,6 @@ button {
 	cursor: pointer;
 	font-weight: inherit;
 	font-family: inherit;
+	background-color: transparent;
 }
 
