@@ -1,5 +1,6 @@
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
+const RESET_ERROR = 'RESET_ERROR';
 
 const initialState = {
   isAuth: false,
@@ -8,10 +9,10 @@ const initialState = {
   isError: null,
 };
 
-const authReducer = (state = initialState, action) => {
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN: {
-      const [login, password] = action.payload;
+      const { login, password } = action.payload;
 
       if (state.login === login && state.password === password) {
         return {
@@ -34,18 +35,29 @@ const authReducer = (state = initialState, action) => {
       };
     }
 
+    case RESET_ERROR: {
+      return {
+        ...state,
+        isError: false,
+      };
+    }
+
     default:
       return state;
   }
 };
 
-export const login = (formData) => ({
+export const loginAC = (formData) => ({
   type: LOGIN,
   payload: formData,
 });
 
-export const logout = () => ({
+export const logoutAC = () => ({
   type: LOGOUT,
 });
 
-export default authReducer;
+export const resetErrorAC = () => ({
+  type: RESET_ERROR,
+});
+
+export default auth;

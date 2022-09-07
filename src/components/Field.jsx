@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
+import { Label } from './Label';
+import { Input } from './Input';
+
 const Field = ({ className, name, type, value, setValue }) => {
   return (
     <div className={className}>
-      <label htmlFor={name}>{name}</label>
-      <input
+      <Label htmlFor={name}>{name}</Label>
+      <Input
         id={name}
         name={name}
         type={type}
@@ -18,5 +21,7 @@ const Field = ({ className, name, type, value, setValue }) => {
 export const StyledField = styled(Field)`
   margin-bottom: 25px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 25px;
 `;
