@@ -34,4 +34,12 @@ export const Posts = styled(_Posts)`
   max-width: 977px;
   width: 100%;
   padding: 140px 15px 90px;
+
+  @media (max-width: 768px) {
+    max-width: 700px;
+  }
+
+  @media (max-width: 630px) {
+    padding: 130px 0 30px;
+  }
 `;

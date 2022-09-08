@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { API } from '../../api/posts';
 import { images } from '../../constants';
-import { Top, Author, Title, Body } from './components';
+import { Top, Author, Title, Body, Img } from './components';
 
 const _Post = ({ className, id, name, companyName }) => {
   const [article, setArticle] = useState(null);
@@ -33,7 +33,7 @@ const _Post = ({ className, id, name, companyName }) => {
   return (
     <article className={className}>
       <Top>
-        <img width={150} height={150} src={article.thumbnailUrl || images.fallback} alt="Author" />
+        <Img width={150} height={150} src={article.thumbnailUrl || images.fallback} alt="Author" />
 
         <div>
           <Author>Autor: {name}</Author>
@@ -56,4 +56,9 @@ export const Post = styled(_Post)`
   border: 5px solid #27569c;
   box-shadow: 0 4px 4px 0 #00000040;
   border-radius: 4px;
+
+  @media (max-width: 630px) {
+    min-height: 200px;
+    padding: 10px 10px 30px;
+  }
 `;

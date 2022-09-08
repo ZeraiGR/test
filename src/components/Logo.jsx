@@ -5,7 +5,10 @@ import images from '../constants/images.js';
 export const Logo = () => {
   return (
     <Link to="/">
-      <img width={273} height={63} src={images.logo} alt="logo" />
+      <picture>
+        <source srcset={images.logoMobile} media="(max-width: 630px)" />
+        <img src={images.logo} alt="logo" />
+      </picture>
     </Link>
   );
 };

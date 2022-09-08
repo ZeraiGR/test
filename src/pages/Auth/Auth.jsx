@@ -35,7 +35,7 @@ const _Auth = ({ className }) => {
       <form onSubmit={handleSubmit}>
         <Field name="login" type="text" value={login} setValue={handleLogin} />
 
-        <Field name="password" type="password" value={password} setValue={handlePassword} />
+        <Field pass name="password" type="password" value={password} setValue={handlePassword} />
 
         {isError && <Error>Incorrect login or password!</Error>}
 
@@ -51,10 +51,10 @@ export const Auth = styled(_Auth)`
   padding: 40px 14px 25px;
   border: 5px solid #27569c;
   border-radius: 6px;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 0 4px 4px 0 #00000040;
   text-align: center;
 
-  @media (max-width: 768px) {
-    text-align: left;
+  @media (max-width: 630px) {
+    padding: 12px 34px 28px;
   }
 `;
