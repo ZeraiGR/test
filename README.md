@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To install this app you need to do following:
+
+1) create folder, open its with terminal
+2) enter and run this command: git clone https://github.com/ZeraiGR/test.git .
+3) enter and run this command: npm i
+4) enter and run this command: npm start
+
 ## Available Scripts
 
 In the project directory, you can run:
