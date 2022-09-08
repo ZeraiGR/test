@@ -1,14 +1,11 @@
 import { useSelector } from 'react-redux';
-
-import { Header } from './Header';
-import { Logo } from '../components/Logo';
-import { Logout } from '../components/Logout';
-import { Main } from './Main';
 import styled from 'styled-components';
-import { selectIsAuth } from '../store/selectors/auth';
 
-const Layout = ({ className, children }) => {
-  const isAuth = useSelector(selectIsAuth);
+import { Header, Main } from './components';
+import { Logo, Logout } from '../components';
+
+const _Layout = ({ className, children }) => {
+  const isAuth = useSelector((state) => state.auth.isAuth);
 
   return (
     <div className={className}>
@@ -23,7 +20,7 @@ const Layout = ({ className, children }) => {
   );
 };
 
-export const StyledLayout = styled(Layout)`
+export const Layout = styled(_Layout)`
   display: flex;
   flex-direction: column;
   min-height: 100vh;

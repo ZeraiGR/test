@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const Label = styled.label`
+export const Login = styled.span`
   font-size: 24px;
 `;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// There's no uses anywhere this hook
+// There's no uses anywhere in the project this hook at the moment
 // But we can use it in the future if it'l need to us
 
 export const useLocalStorage = (key, initialValue) => {

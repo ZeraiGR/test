@@ -1,16 +1,13 @@
-import { useSelector } from 'react-redux';
-import { selectIsAuth } from './store/selectors/auth';
-import { Routes, Route } from 'react-router-dom';
-import { ProtectedRoute } from './components/ProtectedRoute';
-import { useNavigate } from 'react-router-dom';
-
-import { StyledLayout } from './layout/Layout';
-import { Auth } from './pages/Auth';
-import { Posts } from './pages/Posts';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
+import { ProtectedRoute } from './components';
+import { Layout } from './layout/Layout';
+import { Auth, Posts } from './pages';
 
 function App() {
-  const isAuth = useSelector(selectIsAuth);
+  const isAuth = useSelector((state) => state.auth.isAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,7 +21,7 @@ function App() {
   }, [isAuth, navigate]);
 
   return (
-    <StyledLayout>
+    <Layout>
       <Routes>
         <Route
           path="/"
@@ -36,7 +33,7 @@ function App() {
         />
         <Route path="/login" element={<Auth />} />
       </Routes>
-    </StyledLayout>
+    </Layout>
   );
 }
 

@@ -11,3 +11,10 @@ export const Header = styled.header`
   background-color: var(--accent);
   padding: 1.625rem 2.5rem;
 `;
+
+export const Main = styled.main`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: ${(props) => (!props.isAuth ? 'center' : 'stretch')};
+`;

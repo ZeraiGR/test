@@ -6,7 +6,7 @@ const initialState = {
   isAuth: false,
   login: 'user',
   password: '12345',
-  isError: null,
+  isError: false,
 };
 
 const auth = (state = initialState, action) => {
@@ -52,11 +52,11 @@ export const loginAC = (formData) => ({
   payload: formData,
 });
 
-export const logoutAC = () => ({
+export const logout = () => ({
   type: LOGOUT,
 });
 
-export const resetErrorAC = () => ({
+export const resetError = () => ({
   type: RESET_ERROR,
 });
 

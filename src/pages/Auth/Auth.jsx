@@ -1,31 +1,25 @@
 import { useState } from 'react';
-
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-
-import { loginAC, resetErrorAC } from '../store/reducers/auth';
-
-import { Title } from '../components/TItle';
-import { Button } from '../components/Button';
-import { Error } from '../components/Error';
-import { StyledField } from '../components/Field';
-import { selectIsError } from '../store/selectors/auth';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+
+import { loginAC, resetError } from '../../store/reducers/auth';
+import { Title, Error } from './components';
+import { Button, Field } from '../../components';
 
 const _Auth = ({ className }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const isError = useSelector(selectIsError);
+  const isError = useSelector((state) => state.auth.isError);
 
   const handleLogin = (login) => {
-    dispatch(resetErrorAC());
+    dispatch(resetError());
     setLogin(login);
   };
 
   const handlePassword = (password) => {
-    dispatch(resetErrorAC());
+    dispatch(resetError());
     setPassword(password);
   };
 
@@ -39,9 +33,9 @@ const _Auth = ({ className }) => {
     <div className={className}>
       <Title>Autorization</Title>
       <form onSubmit={handleSubmit}>
-        <StyledField name="login" type="text" value={login} setValue={handleLogin} />
+        <Field name="login" type="text" value={login} setValue={handleLogin} />
 
-        <StyledField name="password" type="password" value={password} setValue={handlePassword} />
+        <Field name="password" type="password" value={password} setValue={handlePassword} />
 
         {isError && <Error>Incorrect login or password!</Error>}
 
